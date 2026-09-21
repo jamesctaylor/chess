@@ -8,8 +8,13 @@ package chess;
  */
 public class ChessBoard {
 
+    private final ChessPiece[][] squares = new ChessPiece[8][8];
     public ChessBoard() {
-        
+        for (int row = 1; row <= 8; row++) {
+            for (int col = 1; col <= 8; col++) {
+                addPiece(new ChessPosition(row, col), null);
+            }
+        }
     }
 
     /**
@@ -19,7 +24,6 @@ public class ChessBoard {
      * @param piece    the piece to add
      */
     public void addPiece(ChessPosition position, ChessPiece piece) {
-    // Hello
         squares[position.getRow() - 1][position.getColumn() - 1] = piece;
     }
 
@@ -32,7 +36,7 @@ public class ChessBoard {
      * position
      */
     public ChessPiece getPiece(ChessPosition position) {
-        return squares[position.getRow() - 1][position.getColumn() - 1] = piece;
+        return squares[position.getRow() - 1][position.getColumn() - 1];
     }
 
     /**
